@@ -34,7 +34,21 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // than just CSV files)
 // ref: https://github.com/mapbox/leaflet-omnivore
 
+
+
 // FIXME: Add styling to markers
 // hint: refer to this tutorial for an example of how to do this:
 // ref: https://leafletjs.com/examples/custom-icons/
 // Use airport.png image file
+
+var airportIcon = L.icon({
+    iconUrl: 'airport.png',
+
+    /*iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor*/
+});
+
+//L.marker([40, 40], {icon: airportIcon}).addTo(map);
