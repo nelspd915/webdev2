@@ -34,8 +34,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // than just CSV files)
 // ref: https://github.com/mapbox/leaflet-omnivore
 
-omnivore.csv('airports.csv').addTo(map);
-// Not sure yet why the above line is not working.
+var customLayer = L.geoJson(null, {
+    pointToLayer: function(feature, latlng) {
+        return L.marker(latlng, {icon: airportIcon});
+    }
+});
+
+omnivore.csv('airports.csv', null, customLayer).addTo(map);
 
 // FIXME: Add styling to markers
 // hint: refer to this tutorial for an example of how to do this:
@@ -44,8 +49,5 @@ omnivore.csv('airports.csv').addTo(map);
 
 var airportIcon = L.icon({
     iconUrl: 'airport.png',
+    iconSize: [30,30]
 });
-
-// Not sure yet how to add this icon to the markers for the airports layer, and the airports layer isn't showing up yet anyway. 
-
-// Work in progress...
